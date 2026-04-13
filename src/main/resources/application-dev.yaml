@@ -1,0 +1,2 @@
+security:
+  api-key: ${USER-SERVICE-API-KEY:D5F-9J2-LX7}
