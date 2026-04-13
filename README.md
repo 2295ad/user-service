@@ -23,6 +23,9 @@ Validations :
     On request body, input validations are kept via annotations
     Logical fail fast checks on business logic 
 
+Unit tests :
+    Junit tests for business/service layer logic
+
 Code structure :
     Spotless plugin used to standardize code layout
     mvn spotless:apply
