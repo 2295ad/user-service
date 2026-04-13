@@ -39,10 +39,13 @@ public class TokenFilter extends OncePerRequestFilter {
       HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException {
     String apiKey = request.getHeader(X_API_KEY);
+    if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+      filterChain.doFilter(request, response);
+      return;
+    }
     if (Objects.nonNull(apiKey) && apiKey.equalsIgnoreCase(validApiKey)) {
       filterChain.doFilter(request, response);
     } else {
-
       ErrorResponseDTO errorResponseDto =
           ErrorResponseDTO.builder().code(HttpStatus.UNAUTHORIZED).message("unauthorized").build();
       UserServiceResponse<Object> paymentServiceResponse =
