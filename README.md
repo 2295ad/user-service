@@ -22,5 +22,19 @@ Edge cases handled :
 Validations :
     On request body, input validations are kept via annotations
     Logical fail fast checks on business logic 
+
+Code structure :
+    Spotless plugin used to standardize code layout
+    mvn spotless:apply
+
+Run :
+    dependencies
+        java 17 env
+        spring boot version 4.0.5
+
+    commands
+        mvn clean install -U
+        mvn spring-boot:run
+
     
     
