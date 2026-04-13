@@ -8,9 +8,7 @@ public interface UserService {
 
   void save(UserRegistrationRequest userRegistrationRequest);
 
-  void update();
+  List<UserDTO> fetchUser(String name);
 
-  UserDTO fetchUser(int id);
-
-  List<UserDTO> fetchUsers();
+  List<UserDTO> fetchUsers(int offset, int limit);
 }

@@ -3,3 +3,10 @@ spring:
     name: user
   profiles:
     active: ${PROFILE:dev}
+server:
+  port: 8080
+  servlet:
+    context-path: /customer-service
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - [TRACE-ID=%X{traceId}] %msg%n"

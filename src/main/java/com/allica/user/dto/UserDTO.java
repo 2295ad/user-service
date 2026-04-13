@@ -1,5 +1,6 @@
 package com.allica.user.dto;
 
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ public class UserDTO {
   private Integer id;
   private String firstName;
   private String lastName;
-  private String dateOfBirth;
+  private LocalDate dateOfBirth;
   private String createdAt;
   private String updatedAt;
 }
