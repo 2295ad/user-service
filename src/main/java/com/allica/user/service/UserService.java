@@ -1,14 +1,16 @@
 package com.allica.user.service;
 
+import com.allica.user.dto.UserDTO;
+import com.allica.user.dto.requests.UserRegistrationRequest;
 import java.util.List;
 
 public interface UserService {
 
-    void save();
+  void save(UserRegistrationRequest userRegistrationRequest);
 
-    void update();
+  void update();
 
-    void delete();
+  UserDTO fetchUser(int id);
 
-    List<> fetchUsers();
+  List<UserDTO> fetchUsers();
 }

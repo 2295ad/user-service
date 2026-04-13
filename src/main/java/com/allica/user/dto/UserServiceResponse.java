@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserServiceResponse <T>{
-    private Boolean success;
-    private String message;
-    private ErrorResponseDTO error;
-    private T data;
+public class UserServiceResponse<T> {
+  private Boolean success;
+  private String message;
+  private ErrorResponseDTO error;
+  private T data;
 }

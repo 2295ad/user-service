@@ -4,13 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.http.HttpStatus;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ErrorResponseDTO {
-  private HttpStatus code;
-  private String message;
+public class UserDTO {
+  private Integer id;
+  private String firstName;
+  private String lastName;
+  private String dateOfBirth;
+  private String createdAt;
+  private String updatedAt;
 }

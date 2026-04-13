@@ -1,6 +1,10 @@
 package com.allica.user.http.controller;
 
-import com.allica.user.dto.UserRegistrationRequest;
+import static com.allica.user.dto.constants.ServiceConstants.SUCCESS;
+
+import com.allica.user.dto.UserDTO;
+import com.allica.user.dto.UserServiceResponse;
+import com.allica.user.dto.requests.UserRegistrationRequest;
 import com.allica.user.service.UserService;
 import com.allica.user.utils.ResponseUtil;
 import jakarta.validation.Valid;
@@ -15,20 +19,19 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+  private final UserService userService;
 
-    @PostMapping(value = "/v1/register")
-    public UserServiceResponse<PayoutTransactionDTO> initiatePayout(
-            @RequestBody @Valid UserRegistrationRequest userRegistrationRequest) {
-        PayoutTransactionDTO payoutTransactionDTO = payoutService.initiate(payoutInitiationRequest);
-        return ResponseUtil.success(TX_INITIATED, payoutTransactionDTO);
-    }
+  @PostMapping(value = "/v1/register")
+  public UserServiceResponse<?> initiatePayout(
+      @RequestBody @Valid UserRegistrationRequest userRegistrationRequest) {
+    userService.save(userRegistrationRequest);
+    return ResponseUtil.success(SUCCESS, payoutTransactionDTO);
+  }
 
-    @GetMapping(value = "/v1/status/{transactionId}")
-    public PaymentServiceResponse<PayoutTransactionDTO> fetchPayoutStatus(
-            @PathVariable @NotBlank String transactionId) {
-        PayoutTransactionDTO payoutStatusDTO = payoutService.fetchStatus(transactionId);
-        return ResponseUtil.success(SUCCESS, payoutStatusDTO);
-    }
-
+  @GetMapping(value = "/v1/status/{id}")
+  public PaymentServiceResponse<UserDTO> fetchPayoutStatus(
+      @PathVariable @NotBlank String transactionId) {
+    PayoutTransactionDTO payoutStatusDTO = userService.f(transactionId);
+    return ResponseUtil.success(SUCCESS, payoutStatusDTO);
+  }
 }
